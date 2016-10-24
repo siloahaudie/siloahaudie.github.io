@@ -1,0 +1,143 @@
+<html>
+<head>
+    <style>
+        .list-item {display:flex; flex-flow: column wrap; justify-content: center; align-items: center;}
+        .item {
+            display: inline-block;
+            flex: 0 0 1;
+            height: calc(100vh - 30px);
+            overflow: hidden;
+            width: 100vw;
+            margin-bottom: 50px;
+        }
+        .item img {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+        .item .itemtitle {font-weight:bold; font-size:2em;}
+        .hidden {display:none;}
+    </style>
+</head>
+<body>
+    <h1>Lazy load test</h1>
+
+    <section class='list-item'>
+        <div class="item">
+            <img
+                class="lazy" 
+                data-src="https://source.unsplash.com/category/nature/500x500" 
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/category/nature/500x500"
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/category/nature/500x500"
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/category/nature/500x500"
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/500x500/?food,city" 
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/500x500/?people,city" 
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/500x500/?food,objects" 
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/500x500/?food,technology" 
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/500x500/?nature,city" 
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+        <div class="item">
+            <img 
+                class="lazy" 
+                data-src="https://source.unsplash.com/500x500/?water,city" 
+                alt="Iron Lantern"
+                width="300px" />
+        </div>
+    </section>
+
+<script>
+var lazy = [];
+registerListener('load', setLazy);
+registerListener('load', lazyLoad);
+registerListener('scroll', lazyLoad);
+registerListener('resize', lazyLoad);
+function setLazy(){
+    lazy = document.getElementsByClassName('lazy');
+    console.log('Found ' + lazy.length + ' lazy images');
+} 
+function lazyLoad(){
+    for(var i=0; i<lazy.length; i++){
+        if(isInViewport(lazy[i])){
+            if (lazy[i].getAttribute('data-src')){
+                lazy[i].src = lazy[i].getAttribute('data-src');
+                lazy[i].removeAttribute('data-src');
+            }
+        }
+    }
+    
+    cleanLazy();
+}
+function cleanLazy(){
+    lazy = Array.prototype.filter.call(lazy, function(l){ return l.getAttribute('data-src');});
+}
+function isInViewport(el){
+    var rect = el.getBoundingClientRect();
+    
+    return (
+        rect.bottom >= 0 && 
+        rect.right >= 0 && 
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) && 
+        rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+     );
+}
+function registerListener(event, func) {
+    if (window.addEventListener) {
+        window.addEventListener(event, func);
+    } else {
+        window.attachEvent('on' + event, func);
+    }
+}
+</script>
+</body>
+</html>
