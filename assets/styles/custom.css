@@ -1,0 +1,64 @@
+/* Font
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@import url('https://fonts.googleapis.com/css?family=Concert+One|Share:400,400i,700,700i');
+
+
+
+/* Dark Color Pallete
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.bg-dark-moderate-blue { background-color: rgba(38, 84, 124, 1); }
+.bg-very-dark-blue { background-color: rgba(0, 23, 31, 1); }
+.bg-very-light-gray { background-color: rgba(254, 254, 254, 1); }
+.bg-very-light-red { background-color: rgb(255, 107, 107, 1); }
+.bg-grayish-red { background-color: rgba(188, 171, 174, 1); }
+
+
+
+/* Color Names
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.stain-munsell { background-color: rgba(242, 243, 244, 1); }
+.stain-cerulean { background-color: rgba(0, 123, 167, 1); }
+.stain-crimson { background-color: rgba(220, 20, 60, 1); }
+.stain-charcoal { background-color: rgba( 54, 69, 79, 1); }
+.stain-inchworn { background-color: rgba(178, 236, 93, 1); }
+
+
+
+
+/* Components
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body {
+	background-color: #f2f3f4;
+	color: rgba(0, 23, 31, 1);
+	font-family: 'Concert One', cursive;
+	/*font-family: 'Share', cursive;*/
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+hr {
+	margin-top: 3rem;
+	margin-bottom: 3.5rem;
+	border-width: 0;
+	border-top: 1px solid #ffffff; 
+}
+
+.button:active,
+button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+	position: relative;
+	top: 1px;
+}
+
+footer {
+	background-color: 
+}
+
