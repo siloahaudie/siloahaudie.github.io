@@ -1,7 +1,7 @@
 /* Font
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-@import url('https://fonts.googleapis.com/css?family=Concert+One|Share:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 
 
@@ -32,10 +32,69 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 body {
-	background-color: #f2f3f4;
-	color: rgba(0, 23, 31, 1);
-	font-family: 'Concert One', cursive;
-	/*font-family: 'Share', cursive;*/
+	background-color: rgba(242, 243, 244, 1);
+	color: #EDEBD7;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+section {
+	text-align: center;
+}
+
+section.hero {
+	height: 100vh;
+	position: relative;
+	width: 100vw;
+}
+
+section.hero::after {
+	background-color: rgba( 54, 69, 79, .7);
+	content: '';
+	display: block;
+  left: 0;
+	height: 100%;
+  position: absolute;
+  top: 0;
+	width: 100%;
+}
+
+div.hero {
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+@media (min-width: 550px) {
+	section.hero .container {
+
+	}
+}
+
+@media (min-width: 750px) {
+	section.hero .container {
+
+	}
+}
+
+@media (min-width: 1000px) {
+	section.hero .container {
+
+	}
+}
+
+.loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	background-color: #3DA5D9;
 }
 
 a:hover {
@@ -46,7 +105,7 @@ hr {
 	margin-top: 3rem;
 	margin-bottom: 3.5rem;
 	border-width: 0;
-	border-top: 1px solid #ffffff; 
+	border-top: 1px solid #ffffff;
 }
 
 .button:active,
@@ -59,6 +118,5 @@ input[type="button"]:active {
 }
 
 footer {
-	background-color: 
-}
 
+}
